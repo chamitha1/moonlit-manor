@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://c8xi03xahxkj4"]
+
+[ext_resource type="Texture2D" uid="uid://cedup0ae70dph" path="res://assets/backgrounds/shop_bg.png" id="1_ygcrn"]
+[ext_resource type="Texture2D" uid="uid://c8c3emlbv6pes" path="res://assets/ui/icon_coin.png" id="2_q65g1"]
+[ext_resource type="Texture2D" uid="uid://dblmh1mhk6g0q" path="res://assets/ui/icon_star.png" id="3_sawmr"]
+[ext_resource type="Texture2D" uid="uid://virin5pgw5fn" path="res://assets/ui/icon_reputation.png" id="4_se4pl"]
+[ext_resource type="FontFile" uid="uid://dl87dshb56ep4" path="res://assets/fonts/Jacquard12-Regular.ttf" id="5_riyc1"]
+[ext_resource type="Texture2D" uid="uid://dpwm8p5sx31qh" path="res://assets/characters/portrait_vesper.png" id="6_sawmr"]
+
+[node name="ShopUI" type="Control" unique_id=1605397361]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=375469370]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ygcrn")
+
+[node name="TopHud" type="PanelContainer" parent="TextureRect" unique_id=1196234308]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 57.0
+grow_horizontal = 2
+offset_transform_enabled = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/TopHud" unique_id=1977597284]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Label" type="Label" parent="TextureRect/TopHud/HBoxContainer" unique_id=283503980]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9098039, 0.7607843, 0.36862746, 1)
+text = "120"
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/TopHud/HBoxContainer" unique_id=1115731047]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("2_q65g1")
+expand_mode = 1
+
+[node name="Label2" type="Label" parent="TextureRect/TopHud/HBoxContainer" unique_id=226979316]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9098039, 0.7607843, 0.36862746, 1)
+text = "14"
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect/TopHud/HBoxContainer" unique_id=1062892391]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("3_sawmr")
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="TextureRect/TopHud/HBoxContainer" unique_id=915027928]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9098039, 0.7607843, 0.36862746, 1)
+text = "Respected"
+
+[node name="TextureRect3" type="TextureRect" parent="TextureRect/TopHud/HBoxContainer" unique_id=1687647236]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("4_se4pl")
+expand_mode = 1
+
+[node name="Control" type="Control" parent="TextureRect/TopHud/HBoxContainer" unique_id=2134188764]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label4" type="Label" parent="TextureRect/TopHud/HBoxContainer" unique_id=1666830998]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6627451, 0.5764706, 0.83137256, 1)
+theme_override_fonts/font = ExtResource("5_riyc1")
+theme_override_font_sizes/font_size = 24
+text = "Night - 3 Midnight "
+
+[node name="OrderPanel" type="PanelContainer" parent="TextureRect" unique_id=1852669376]
+custom_minimum_size = Vector2(300, 110)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -32.0
+offset_right = 16.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/OrderPanel" unique_id=1315925927]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Porrtrait" type="TextureRect" parent="TextureRect/OrderPanel/HBoxContainer" unique_id=1476863462]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("6_sawmr")
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/OrderPanel/HBoxContainer" unique_id=167321409]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TextureRect/OrderPanel/HBoxContainer/VBoxContainer" unique_id=1373583795]
+layout_mode = 2
+text = "CustomerName"
+
+[node name="Label2" type="Label" parent="TextureRect/OrderPanel/HBoxContainer/VBoxContainer" unique_id=283726821]
+layout_mode = 2
+text = "Request"
+
+[node name="ingredients" type="HBoxContainer" parent="TextureRect/OrderPanel/HBoxContainer/VBoxContainer" unique_id=664892790]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/OrderPanel/HBoxContainer/VBoxContainer" unique_id=369697477]
+layout_mode = 2

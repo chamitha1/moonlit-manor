@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Moonlit Manor"
+run/main_scene="uid://cr13yr8jvh4wo"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -21,6 +22,10 @@ window/size/viewport_height=360
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
+
+[gui]
+
+theme/custom="uid://c4onqf84sssx5"
 
 [physics]
 

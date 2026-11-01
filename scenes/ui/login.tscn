@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://bnp66dqngjuus"]
+
+[ext_resource type="Script" uid="uid://dypj0ne55dk5o" path="res://scenes/ui/login.gd" id="1_0ouj8"]
+[ext_resource type="Texture2D" uid="uid://pky8hgihh6d4" path="res://assets/backgrounds/title_bg.png" id="1_ec7l3"]
+[ext_resource type="FontFile" uid="uid://dl87dshb56ep4" path="res://assets/fonts/Jacquard12-Regular.ttf" id="2_ebl7d"]
+
+[node name="Login" type="Control" unique_id=772619043]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0ouj8")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1564704257]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ec7l3")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="CenterContainer" type="CenterContainer" parent="Background" unique_id=1035188337]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Background/CenterContainer" unique_id=2081794559]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/CenterContainer/PanelContainer" unique_id=1420145649]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="Background/CenterContainer/PanelContainer/VBoxContainer" unique_id=458260491]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9098039, 0.7607843, 0.36862746, 1)
+theme_override_fonts/font = ExtResource("2_ebl7d")
+theme_override_font_sizes/font_size = 24
+text = "Welcome back, keeper"
+horizontal_alignment = 1
+
+[node name="Username" type="LineEdit" parent="Background/CenterContainer/PanelContainer/VBoxContainer" unique_id=1669987122]
+layout_mode = 2
+placeholder_text = "Username"
+
+[node name="Password" type="LineEdit" parent="Background/CenterContainer/PanelContainer/VBoxContainer" unique_id=1815672311]
+layout_mode = 2
+placeholder_text = "Password"
+secret = true
+
+[node name="ErrorLabel" type="Label" parent="Background/CenterContainer/PanelContainer/VBoxContainer" unique_id=1088982073]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.81960785, 0.3372549, 0.47843137, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/CenterContainer/PanelContainer/VBoxContainer" unique_id=396710585]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="LoginButton" type="Button" parent="Background/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=187990695]
+layout_mode = 2
+text = "Log in"
+
+[node name="RegistrationButton" type="Button" parent="Background/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=451106056]
+layout_mode = 2
+text = "Create account"
+
+[connection signal="pressed" from="Background/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/LoginButton" to="." method="_on_login_button_pressed"]
+[connection signal="pressed" from="Background/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/RegistrationButton" to="." method="_on_registration_button_pressed"]

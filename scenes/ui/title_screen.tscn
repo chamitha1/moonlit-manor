@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://cr13yr8jvh4wo"]
+
+[ext_resource type="Script" uid="uid://0i6uinjteoi4" path="res://scenes/ui/title_screen.gd" id="1_6ik4u"]
+[ext_resource type="Texture2D" uid="uid://pky8hgihh6d4" path="res://assets/backgrounds/title_bg.png" id="1_cfe2f"]
+[ext_resource type="Texture2D" uid="uid://k1aij7k7w2k" path="res://assets/ui/logo_moon.png" id="2_6ik4u"]
+[ext_resource type="FontFile" uid="uid://dl87dshb56ep4" path="res://assets/fonts/Jacquard12-Regular.ttf" id="3_aqu7r"]
+[ext_resource type="Texture2D" uid="uid://cdu88x57qxndg" path="res://assets/ui/sky_star_small.png" id="4_jsbfx"]
+[ext_resource type="Texture2D" uid="uid://d23t35vsyfm7s" path="res://assets/ui/sky_star_big.png" id="5_7oraf"]
+[ext_resource type="Script" uid="uid://da2ua7fwxftws" path="res://scenes/ui/twinkle.gd" id="6_lddph"]
+
+[node name="TitleScreen" type="Control" unique_id=292257796]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6ik4u")
+
+[node name="Background" type="TextureRect" parent="." unique_id=228975868]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_cfe2f")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="CenterContainer" type="CenterContainer" parent="Background" unique_id=1962322902]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu" type="VBoxContainer" parent="Background/CenterContainer" unique_id=1191802162]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Logo" type="TextureRect" parent="Background/CenterContainer/Menu" unique_id=1581994304]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_6ik4u")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Title" type="Label" parent="Background/CenterContainer/Menu" unique_id=1615566727]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9098039, 0.7607843, 0.36862746, 1)
+theme_override_colors/font_outline_color = Color(0.07058824, 0.05490196, 0.12156863, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_aqu7r")
+theme_override_font_sizes/font_size = 48
+text = "Moonlit Manor"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Background/CenterContainer/Menu/Title" unique_id=1981492648]
+layout_mode = 0
+offset_left = 326.0
+offset_top = -11.0
+offset_right = 366.0
+offset_bottom = 29.0
+texture = ExtResource("4_jsbfx")
+script = ExtResource("6_lddph")
+
+[node name="TextureRect5" type="TextureRect" parent="Background/CenterContainer/Menu/Title" unique_id=869762072]
+layout_mode = 0
+offset_left = 32.0
+offset_top = -133.0
+offset_right = 72.0
+offset_bottom = -93.0
+texture = ExtResource("4_jsbfx")
+script = ExtResource("6_lddph")
+
+[node name="TextureRect6" type="TextureRect" parent="Background/CenterContainer/Menu/Title" unique_id=1008265305]
+layout_mode = 0
+offset_left = -149.0
+offset_top = -133.0
+offset_right = -109.0
+offset_bottom = -93.0
+texture = ExtResource("4_jsbfx")
+script = ExtResource("6_lddph")
+
+[node name="TextureRect2" type="TextureRect" parent="Background/CenterContainer/Menu/Title" unique_id=1577142488]
+layout_mode = 0
+offset_left = 409.0
+offset_top = -117.0
+offset_right = 449.0
+offset_bottom = -77.0
+texture = ExtResource("5_7oraf")
+script = ExtResource("6_lddph")
+
+[node name="TextureRect3" type="TextureRect" parent="Background/CenterContainer/Menu/Title" unique_id=1376468397]
+layout_mode = 0
+offset_left = -161.0
+offset_top = -66.0
+offset_right = -121.0
+offset_bottom = -26.0
+texture = ExtResource("5_7oraf")
+script = ExtResource("6_lddph")
+
+[node name="TextureRect4" type="TextureRect" parent="Background/CenterContainer/Menu/Title" unique_id=670809870]
+layout_mode = 0
+offset_left = 180.0
+offset_top = -103.0
+offset_right = 220.0
+offset_bottom = -63.0
+texture = ExtResource("5_7oraf")
+script = ExtResource("6_lddph")
+
+[node name="StartButton" type="Button" parent="Background/CenterContainer/Menu" unique_id=1549095615]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+text = "Start"
+
+[node name="LeaderboardButton" type="Button" parent="Background/CenterContainer/Menu" unique_id=2059144119]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+text = "Leaderboard"
+
+[node name="QuitButton" type="Button" parent="Background/CenterContainer/Menu" unique_id=1299918849]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="Background/CenterContainer/Menu/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Background/CenterContainer/Menu/LeaderboardButton" to="." method="_on_leaderboard_button_pressed"]
+[connection signal="pressed" from="Background/CenterContainer/Menu/QuitButton" to="." method="_on_quit_button_pressed"]
