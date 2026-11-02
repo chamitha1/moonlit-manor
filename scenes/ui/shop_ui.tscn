@@ -6,6 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://virin5pgw5fn" path="res://assets/ui/icon_reputation.png" id="4_se4pl"]
 [ext_resource type="FontFile" uid="uid://dl87dshb56ep4" path="res://assets/fonts/Jacquard12-Regular.ttf" id="5_riyc1"]
 [ext_resource type="Texture2D" uid="uid://dpwm8p5sx31qh" path="res://assets/characters/portrait_vesper.png" id="6_sawmr"]
+[ext_resource type="PackedScene" uid="uid://bbwddu4vurvqx" path="res://scenes/ui/slot.tscn" id="7_30c1b"]
+[ext_resource type="Texture2D" uid="uid://de2iys2l3uwpb" path="res://assets/ui/ui_bar_under.png" id="8_fbehl"]
+[ext_resource type="Texture2D" uid="uid://cbphgsxtwqeua" path="res://assets/ui/ingredient_shadowroot.png" id="8_vip3o"]
+[ext_resource type="Texture2D" uid="uid://ndeeblywesqr" path="res://assets/ui/ui_bar_progress.png" id="9_1pfkb"]
+[ext_resource type="Texture2D" uid="uid://cnl46lvkrp7jy" path="res://assets/ui/ingredient_duskberry.png" id="9_amby3"]
+[ext_resource type="Script" uid="uid://c8wko7rhy6puc" path="res://scenes/ui/patience.gd" id="12_j64c2"]
 
 [node name="ShopUI" type="Control" unique_id=1605397361]
 layout_mode = 3
@@ -88,9 +94,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -16.0
-offset_top = -32.0
-offset_right = 16.0
+offset_left = -150.0
+offset_top = -110.0
+offset_right = 150.0
 offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -99,25 +105,77 @@ grow_vertical = 0
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Porrtrait" type="TextureRect" parent="TextureRect/OrderPanel/HBoxContainer" unique_id=1476863462]
+[node name="Portrait" type="TextureRect" parent="TextureRect/OrderPanel/HBoxContainer" unique_id=1476863462]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("6_sawmr")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/OrderPanel/HBoxContainer" unique_id=167321409]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
 
-[node name="Label" type="Label" parent="TextureRect/OrderPanel/HBoxContainer/VBoxContainer" unique_id=1373583795]
+[node name="CustomerName" type="Label" parent="TextureRect/OrderPanel/HBoxContainer/VBoxContainer" unique_id=1373583795]
 layout_mode = 2
-text = "CustomerName"
+theme_override_colors/font_color = Color(0.9098039, 0.7607843, 0.36862746, 1)
+theme_override_fonts/font = ExtResource("5_riyc1")
+theme_override_font_sizes/font_size = 24
+text = "Count Vesper's Order"
 
-[node name="Label2" type="Label" parent="TextureRect/OrderPanel/HBoxContainer/VBoxContainer" unique_id=283726821]
+[node name="CustomerRequest" type="Label" parent="TextureRect/OrderPanel/HBoxContainer/VBoxContainer" unique_id=283726821]
 layout_mode = 2
-text = "Request"
+text = "Something to keep sun off my skin"
+autowrap_mode = 2
 
 [node name="ingredients" type="HBoxContainer" parent="TextureRect/OrderPanel/HBoxContainer/VBoxContainer" unique_id=664892790]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/OrderPanel/HBoxContainer/VBoxContainer" unique_id=369697477]
+[node name="Slot" parent="TextureRect/OrderPanel/HBoxContainer/VBoxContainer/ingredients" unique_id=681979553 instance=ExtResource("7_30c1b")]
 layout_mode = 2
+
+[node name="Panel" parent="TextureRect/OrderPanel/HBoxContainer/VBoxContainer/ingredients" unique_id=1321223034 instance=ExtResource("7_30c1b")]
+layout_mode = 2
+
+[node name="TextureRect" parent="TextureRect/OrderPanel/HBoxContainer/VBoxContainer/ingredients/Panel" index="0" unique_id=795643406]
+texture = ExtResource("8_vip3o")
+
+[node name="Panel2" parent="TextureRect/OrderPanel/HBoxContainer/VBoxContainer/ingredients" unique_id=1139341026 instance=ExtResource("7_30c1b")]
+layout_mode = 2
+
+[node name="TextureRect" parent="TextureRect/OrderPanel/HBoxContainer/VBoxContainer/ingredients/Panel2" index="0" unique_id=795643406]
+texture = ExtResource("9_amby3")
+
+[node name="Bar-Buttons" type="HBoxContainer" parent="TextureRect/OrderPanel/HBoxContainer/VBoxContainer" unique_id=369697477]
+layout_mode = 2
+
+[node name="Patience" type="TextureProgressBar" parent="TextureRect/OrderPanel/HBoxContainer/VBoxContainer/Bar-Buttons" unique_id=262433887]
+custom_minimum_size = Vector2(96, 8)
+layout_mode = 2
+step = 0.1
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 2
+stretch_margin_top = 2
+stretch_margin_right = 2
+stretch_margin_bottom = 2
+texture_under = ExtResource("8_fbehl")
+texture_progress = ExtResource("9_1pfkb")
+script = ExtResource("12_j64c2")
+
+[node name="Spacer" type="Control" parent="TextureRect/OrderPanel/HBoxContainer/VBoxContainer/Bar-Buttons" unique_id=94394372]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Brew" type="Button" parent="TextureRect/OrderPanel/HBoxContainer/VBoxContainer/Bar-Buttons" unique_id=1243511371]
+layout_mode = 2
+text = "Brew"
+
+[node name="Serve" type="Button" parent="TextureRect/OrderPanel/HBoxContainer/VBoxContainer/Bar-Buttons" unique_id=376572068]
+layout_mode = 2
+text = "Serve"
+
+[editable path="TextureRect/OrderPanel/HBoxContainer/VBoxContainer/ingredients/Slot"]
+[editable path="TextureRect/OrderPanel/HBoxContainer/VBoxContainer/ingredients/Panel"]
+[editable path="TextureRect/OrderPanel/HBoxContainer/VBoxContainer/ingredients/Panel2"]
